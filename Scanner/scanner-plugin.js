@@ -68,7 +68,7 @@ const isESP32WithPE5PVB = true;  // Set to true if ESP32 with PE5PVB firmware is
             // Determine the host of the current page
             const host = window.location.host;
             // Determine the pathname of the current page
-            const host = window.location.pathname;
+            const pathname = window.location.pathname;
             // Construct the WebSocket URL
             const wsUrl = `${protocol}//${host}${pathname}text`;
 
@@ -279,8 +279,10 @@ const isESP32WithPE5PVB = true;  // Set to true if ESP32 with PE5PVB firmware is
         const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
         // Determine the host of the current page
         const host = window.location.host;
+        // Determine the pathname of the current page
+        const pathname = window.location.pathname;
         // Construct the WebSocket URL
-        const wsUrl = `${protocol}//${host}/text`;
+        const wsUrl = `${protocol}//${host}${pathname}text`;
 
         // Create a WebSocket connection to the specified URL
         const autoScanSocket = new WebSocket(wsUrl);
