@@ -4,8 +4,8 @@
 ///                                                                                /// 
 ///  by Highpoint                                                                  ///
 ///  mod by PE5PVB - Will only work with PE5PVB ESP32 firmware                     ///
-///																				   ///
-///                                                        last update: 31.05.24   ///
+///										   ///
+///                                                        last update: 03.06.24   ///
 //////////////////////////////////////////////////////////////////////////////////////
 
 const isESP32WithPE5PVB = true;  // Set to true if ESP32 with PE5PVB firmware is being used
@@ -67,8 +67,10 @@ const isESP32WithPE5PVB = true;  // Set to true if ESP32 with PE5PVB firmware is
             const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
             // Determine the host of the current page
             const host = window.location.host;
+            // Determine the pathname of the current page
+            const host = window.location.pathname;
             // Construct the WebSocket URL
-            const wsUrl = `${protocol}//${host}/text`;
+            const wsUrl = `${protocol}//${host}${pathname}text`;
 
             // Create a WebSocket connection to the specified URL
             const autoScanSocket = new WebSocket(wsUrl);
